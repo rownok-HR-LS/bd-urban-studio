@@ -1,0 +1,16 @@
+# Supabase CLI config. Most settings use CLI defaults; only what this project
+# relies on is listed here.
+project_id = "bd-urban-studio"
+
+[auth]
+site_url = "https://rownok-hr-ls.github.io/bd-urban-studio"
+additional_redirect_urls = ["http://localhost:8081", "http://localhost:5174"]
+# Guests can try the AI designer before signing in (scope doc: browse until checkout).
+enable_anonymous_sign_ins = true
+
+[auth.sms]
+enable_signup = true
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed/base.sql", "./seed/catalog.sql"]

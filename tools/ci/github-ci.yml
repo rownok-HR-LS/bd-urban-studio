@@ -1,0 +1,24 @@
+# To enable: move this file to .github/workflows/ci.yml. Pushing workflow files
+# needs a GitHub token with the "workflow" scope (gh auth refresh -s workflow).
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: Database schema + security rules
+        run: npm run db:check

@@ -1,0 +1,27 @@
+{
+  "name": "bd-urban-studio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "BD-urban Studio: AI balcony garden design, sourcing, installation and care for Bangladesh.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "mobile": "npm run start -w mobile",
+    "web": "npm run web -w mobile",
+    "admin": "npm run dev -w admin",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "db:check": "npm run db:seed && tsx tools/db/check.mts",
+    "db:seed": "tsx tools/db/generate-seed.mts"
+  },
+  "overrides": {
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "tsx": "^4.23.15"
+  }
+}

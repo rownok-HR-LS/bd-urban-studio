@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+/* Colours come from @bdu/core's palette; prefs.tsx writes them as --c-* variables
+   on <html> so light/dark always match the mobile app. These are the light
+   defaults used before JavaScript runs. */
+:root {
+  --c-bg: #f6f1e7;
+  --c-ink: #22302a;
+  --font-display: 'Fraunces', 'Hind Siliguri', serif;
+  --font-sans: 'DM Sans', 'Hind Siliguri', system-ui, sans-serif;
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-surface-alt: var(--c-surfaceAlt);
+  --color-ink: var(--c-ink);
+  --color-ink-soft: var(--c-inkSoft);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+  --color-primary: var(--c-primary);
+  --color-primary-ink: var(--c-primaryInk);
+  --color-primary-soft: var(--c-primarySoft);
+  --color-accent: var(--c-accent);
+  --color-accent-soft: var(--c-accentSoft);
+  --color-sun: var(--c-sun);
+  --color-sun-soft: var(--c-sunSoft);
+  --color-sky: var(--c-sky);
+  --color-sky-soft: var(--c-skySoft);
+  --color-success: var(--c-success);
+  --color-warning: var(--c-warning);
+  --color-danger: var(--c-danger);
+  --color-danger-soft: var(--c-dangerSoft);
+}
+
+:root[lang='bn'] {
+  --font-display: 'Hind Siliguri', serif;
+  --font-sans: 'Hind Siliguri', 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:root[lang='bn'] body {
+  line-height: 1.6;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+}
