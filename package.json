@@ -14,7 +14,9 @@
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "db:check": "npm run db:seed && tsx tools/db/check.mts",
-    "db:seed": "tsx tools/db/generate-seed.mts"
+    "db:seed": "tsx tools/db/generate-seed.mts",
+    "build:site": "node tools/build-site.mjs",
+    "deploy": "npm run build:site && gh-pages -d site --nojekyll -m \"Deploy site\""
   },
   "overrides": {
     "react": "19.2.3",
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",
+    "gh-pages": "^6.3.0",
     "tsx": "^4.23.15"
   }
 }
